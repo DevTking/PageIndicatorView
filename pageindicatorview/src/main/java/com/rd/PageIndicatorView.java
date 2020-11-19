@@ -12,7 +12,6 @@ import android.os.Parcelable;
 import androidx.annotation.Nullable;
 import androidx.core.text.TextUtilsCompat;
 import androidx.core.view.ViewCompat;
-import androidx.viewpager.widget.ViewPager;
 
 import android.util.AttributeSet;
 import android.util.Pair;
