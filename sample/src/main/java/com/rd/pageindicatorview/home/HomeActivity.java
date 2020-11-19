@@ -2,12 +2,19 @@ package com.rd.pageindicatorview.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+
 import com.rd.PageIndicatorView;
+import com.rd.pageindicatorview.ViewPager2Support;
 import com.rd.pageindicatorview.base.BaseActivity;
 import com.rd.pageindicatorview.customize.CustomizeActivity;
 import com.rd.pageindicatorview.data.Customization;
@@ -21,15 +28,59 @@ public class HomeActivity extends BaseActivity {
 
     private PageIndicatorView pageIndicatorView;
     private Customization customization;
+    private ViewPager2 viewPager2;
+    private ViewPager viewPager1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ac_home);
+
         customization = new Customization();
 
         initToolbar();
-        initViews();
+
+        //ViewPager
+//        viewPager1 = findViewById(R.id.viewPager1);
+//        HomeAdapter adapter = new HomeAdapter();
+//        adapter.setData(createPageList());
+//        viewPager1.setAdapter(adapter);
+
+        //ViewPager2
+        viewPager2 = findViewById(R.id.viewpager2);
+        viewPager2.setAdapter(new RecyclerView.Adapter() {
+            int[] colors = {
+                    R.color.google_red
+                    , R.color.google_blue
+                    , R.color.google_yellow
+                    , R.color.google_green
+            };
+
+            @NonNull
+            @Override
+            public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = getLayoutInflater().inflate(R.layout.item_pager, parent, false);
+
+                return new RecyclerView.ViewHolder(view) {
+                };
+            }
+
+            @Override
+            public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+                int color = colors[position];
+                holder.itemView.setBackgroundColor(getResources().getColor(color));
+            }
+
+            @Override
+            public int getItemCount() {
+                return colors.length;
+            }
+        });
+
+        pageIndicatorView = findViewById(R.id.pageIndicatorView);
+
+        pageIndicatorView.setPageIndicatorSupport(new ViewPager2Support(pageIndicatorView, viewPager2));
+
     }
 
     @Override
@@ -57,17 +108,6 @@ public class HomeActivity extends BaseActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    @SuppressWarnings("ConstantConditions")
-    private void initViews() {
-        HomeAdapter adapter = new HomeAdapter();
-        adapter.setData(createPageList());
-
-        final ViewPager pager = findViewById(R.id.viewPager);
-        pager.setAdapter(adapter);
-
-        pageIndicatorView = findViewById(R.id.pageIndicatorView);
     }
 
     @NonNull

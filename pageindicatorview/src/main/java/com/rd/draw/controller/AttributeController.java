@@ -39,7 +39,6 @@ public class AttributeController {
     }
 
     private void initCountAttribute(@NonNull TypedArray typedArray) {
-        int viewPagerId = typedArray.getResourceId(R.styleable.PageIndicatorView_piv_viewPager, View.NO_ID);
         boolean autoVisibility = typedArray.getBoolean(R.styleable.PageIndicatorView_piv_autoVisibility, true);
         boolean dynamicCount = typedArray.getBoolean(R.styleable.PageIndicatorView_piv_dynamicCount, false);
         int count = typedArray.getInt(R.styleable.PageIndicatorView_piv_count, Indicator.COUNT_NONE);
@@ -55,7 +54,6 @@ public class AttributeController {
             position = count - 1;
         }
 
-        indicator.setViewPagerId(viewPagerId);
         indicator.setAutoVisibility(autoVisibility);
         indicator.setDynamicCount(dynamicCount);
         indicator.setCount(count);

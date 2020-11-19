@@ -17,15 +17,20 @@
         app:title="@string/home"
         app:titleTextAppearance="@style/ToolbarTextAppearance" />
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar" />
 
-    <com.rd.PageIndicatorView
+<!--    <androidx.viewpager.widget.ViewPager-->
+<!--        android:id="@+id/viewpager1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_below="@+id/toolbar" />-->
+
+er    <com.rd.PageIndicatorView
         android:id="@+id/pageIndicatorView"
-        app:piv_viewPager="@id/viewPager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -45,8 +45,6 @@ public class Indicator {
     private int selectingPosition;
     private int lastSelectedPosition;
 
-    private int viewPagerId = View.NO_ID;
-
     private Orientation orientation;
     private AnimationType animationType;
     private RtlMode rtlMode;
@@ -233,14 +231,6 @@ public class Indicator {
 
     public void setLastSelectedPosition(int lastSelectedPosition) {
         this.lastSelectedPosition = lastSelectedPosition;
-    }
-
-    public int getViewPagerId() {
-        return viewPagerId;
-    }
-
-    public void setViewPagerId(int viewPagerId) {
-        this.viewPagerId = viewPagerId;
     }
 
     @NonNull

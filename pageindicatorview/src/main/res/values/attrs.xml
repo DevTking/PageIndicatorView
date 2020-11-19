@@ -6,25 +6,18 @@
             <enum name="horizontal" value="0" />
             <enum name="vertical" value="1" />
         </attr>
-
-        <attr name="piv_viewPager" format="reference" />
         <attr name="piv_select" format="integer" />
-
         <attr name="piv_count" format="integer" />
         <attr name="piv_dynamicCount" format="boolean" />
-
         <attr name="piv_radius" format="dimension" />
         <attr name="piv_padding" format="dimension" />
         <attr name="piv_strokeWidth" format="dimension" />
         <attr name="piv_scaleFactor" format="float" />
         <attr name="piv_autoVisibility" format="boolean" />
-
         <attr name="piv_unselectedColor" format="color" />
         <attr name="piv_selectedColor" format="color" />
-
         <attr name="piv_fadeOnIdle" format="boolean" />
         <attr name="piv_idleDuration" format="integer" />
-
         <attr name="piv_interactiveAnimation" format="boolean" />
         <attr name="piv_animationDuration" format="integer" />
         <attr name="piv_animationType">
